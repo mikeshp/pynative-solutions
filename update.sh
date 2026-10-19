@@ -37,7 +37,9 @@ else
 	exit
 fi
 
-FLDR_INDX=$(( ${#FLDR_ORIG[@]} - 1 ))
+echo -e "Looking for solutions..."
+
+FLDR_INDX=${#FLDR_ORIG[@]}
 
 for (( INDX=0; INDX<$FLDR_INDX; INDX++ )); do
 
