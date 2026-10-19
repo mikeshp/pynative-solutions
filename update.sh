@@ -27,6 +27,7 @@ echo -e "\nChoose the language to update solutions:"
 echo
 echo -e "\t 1. - C"
 echo -e "\t 2. - PHP"
+echo -e "\t 3. - Pascal"
 echo
 read -p "> " USER_SELECT
 
@@ -48,6 +49,15 @@ elif [[ $USER_SELECT -eq 2 ]]; then
 	  OPN_COM=' * '
 	  MID_COM=' * '
 	  CLS_COM=' */'
+# Pascal constants
+elif [[ $USER_SELECT -eq 3 ]]; then
+	LANG_PATH=LearnPASCAL
+	LANG_FLDR=lang-pascal
+	LANG_EXTN=pas
+	OPEN_HEAD='(* PYnative.com C Exercise Solutions'
+	  OPN_COM=' * '
+	  MID_COM=' * '
+	  CLS_COM=' *)'
 else
 	echo -e "Wrong input"
 	exit
