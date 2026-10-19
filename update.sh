@@ -24,15 +24,27 @@ LINK_ORIG=("c-programming-variables-data-types-exercises" \
            "c-programming-exercises-for-beginners")
 
 echo -e "\nChoose the language to update solutions:"
-echo -e "\n\t 1. - C"
+echo
+echo -e "\t 1. - C"
+echo -e "\t 2. - PHP"
 echo
 read -p "> " USER_SELECT
 
+# C constants
 if   [[ $USER_SELECT -eq 1 ]]; then
 	LANG_PATH=LearnC
 	LANG_FLDR=lang-c
 	LANG_EXTN=c
-	OPEN_HEAD='/* PYnative Exercise Solutions - C\n * ==============================='
+	OPEN_HEAD='/* PYnative.com C Exercise Solutions'
+	  OPN_COM=' * '
+	  MID_COM=' * '
+	  CLS_COM=' */'
+# PHP constants
+elif [[ $USER_SELECT -eq 2 ]]; then
+	LANG_PATH=LearnPHP
+	LANG_FLDR=lang-php
+	LANG_EXTN=php
+	OPEN_HEAD='<?php\ndeclare(strict_types=1);\n\n/* PYnative.com C Exercise Solutions'
 	  OPN_COM=' * '
 	  MID_COM=' * '
 	  CLS_COM=' */'
