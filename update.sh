@@ -60,7 +60,7 @@ elif [[ $USER_SELECT -eq 3 ]]; then
 	  OPN_COM='(* '
 	  MID_COM=' * '
 	  CLS_COM=' *)'
-	  SED_CUT='1,/\*\)/d'
+	  SED_CUT='1,/\*)/d'
 else
 	echo -e "Wrong input"
 	exit
