@@ -37,7 +37,7 @@ if   [[ $USER_SELECT -eq 1 ]]; then
 	LANG_FLDR=lang-c
 	LANG_EXTN=c
 	OPEN_HEAD='/* PYnative.com C Exercise Solutions'
-	  OPN_COM=' * '
+	  OPN_COM='/* '
 	  MID_COM=' * '
 	  CLS_COM=' */'
 # PHP constants
@@ -46,7 +46,7 @@ elif [[ $USER_SELECT -eq 2 ]]; then
 	LANG_FLDR=lang-php
 	LANG_EXTN=php
 	OPEN_HEAD='<?php\ndeclare(strict_types=1);\n\n/* PYnative.com C Exercise Solutions'
-	  OPN_COM=' * '
+	  OPN_COM='/* '
 	  MID_COM=' * '
 	  CLS_COM=' */'
 # Pascal constants
@@ -55,7 +55,7 @@ elif [[ $USER_SELECT -eq 3 ]]; then
 	LANG_FLDR=lang-pascal
 	LANG_EXTN=pas
 	OPEN_HEAD='(* PYnative.com C Exercise Solutions'
-	  OPN_COM=' * '
+	  OPN_COM='(* '
 	  MID_COM=' * '
 	  CLS_COM=' *)'
 else
@@ -94,7 +94,7 @@ for (( INDX=0; INDX<$FLDR_INDX; INDX++ )); do
 
 		echo -e "$OPEN_HEAD\n$MID_COM" > $FILE_DEST
 		echo -e "$OPN_COM$LINE_NAME\n$MID_COM$LINE_LINK\n$CLS_COM" >> $FILE_DEST
-		cat $FILE_ORIG | sed '1,/\*\//d' >> $FILE_DEST
+		cat $FILE_ORIG | sed '1,/$OPN_COM/d' >> $FILE_DEST
 
 	done
 
