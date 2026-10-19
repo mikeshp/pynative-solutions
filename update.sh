@@ -32,6 +32,10 @@ if   [[ $USER_SELECT -eq 1 ]]; then
 	LANG_PATH=LearnC
 	LANG_FLDR=lang-c
 	LANG_EXTN=c
+	OPEN_HEAD='/* PYnative Exercise Solutions - C\n * ==============================='
+	  OPN_COM=' * '
+	  MID_COM=' * '
+	  CLS_COM=' */'
 else
 	echo -e "Wrong input"
 	exit
@@ -66,7 +70,8 @@ for (( INDX=0; INDX<$FLDR_INDX; INDX++ )); do
 		LINE_NAME="Exercise $EX_NUMBER: $EX_PROMPT"
 		LINE_LINK="https://pynative.com/$CRNT_LINK"
 
-		echo -e "/* $LINE_NAME\n * $LINE_LINK\n */" > $FILE_DEST
+		echo -e "$OPEN_HEAD\n$MID_COM" > $FILE_DEST
+		echo -e "$OPN_COM$LINE_NAME\n$MID_COM$LINE_LINK\n$CLS_COM" >> $FILE_DEST
 		cat $FILE_ORIG | sed '1,/\*\//d' >> $FILE_DEST
 
 	done
