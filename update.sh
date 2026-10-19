@@ -36,19 +36,21 @@ if   [[ $USER_SELECT -eq 1 ]]; then
 	LANG_PATH=LearnC
 	LANG_FLDR=lang-c
 	LANG_EXTN=c
-	OPEN_HEAD='/* PYnative.com C Exercise Solutions'
+	OPEN_HEAD=''
 	  OPN_COM='/* '
 	  MID_COM=' * '
 	  CLS_COM=' */'
+	  SED_CUT='1,/\*\//d'
 # PHP constants
 elif [[ $USER_SELECT -eq 2 ]]; then
 	LANG_PATH=LearnPHP
 	LANG_FLDR=lang-php
 	LANG_EXTN=php
-	OPEN_HEAD='<?php\ndeclare(strict_types=1);\n\n/* PYnative.com C Exercise Solutions'
+	OPEN_HEAD='<?php\ndeclare(strict_types=1);\n'
 	  OPN_COM='/* '
 	  MID_COM=' * '
 	  CLS_COM=' */'
+	  SED_CUT='1,/\*\//d'
 # Pascal constants
 elif [[ $USER_SELECT -eq 3 ]]; then
 	LANG_PATH=LearnPASCAL
@@ -58,6 +60,7 @@ elif [[ $USER_SELECT -eq 3 ]]; then
 	  OPN_COM='(* '
 	  MID_COM=' * '
 	  CLS_COM=' *)'
+	  SED_CUT='1,/\*\)/d'
 else
 	echo -e "Wrong input"
 	exit
@@ -92,9 +95,10 @@ for (( INDX=0; INDX<$FLDR_INDX; INDX++ )); do
 		LINE_NAME="Exercise $EX_NUMBER: $EX_PROMPT"
 		LINE_LINK="https://pynative.com/$CRNT_LINK"
 
-		echo -e "$OPEN_HEAD\n$MID_COM" > $FILE_DEST
-		echo -e "$OPN_COM$LINE_NAME\n$MID_COM$LINE_LINK\n$CLS_COM" >> $FILE_DEST
-		cat $FILE_ORIG | sed '1,/$OPN_COM/d' >> $FILE_DEST
+		echo -e "$OPEN_HEAD" > $FILE_DEST
+		echo -e "$OPN_COM\n$MID_COM$LINE_NAME\n$MID_COM$LINE_LINK\n$CLS_COM" \
+		 >> $FILE_DEST
+		cat $FILE_ORIG | sed $SED_CUT >> $FILE_DEST
 
 	done
 
