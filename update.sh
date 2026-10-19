@@ -46,7 +46,7 @@ elif [[ $USER_SELECT -eq 2 ]]; then
 	LANG_PATH=LearnPHP
 	LANG_FLDR=lang-php
 	LANG_EXTN=php
-	OPEN_HEAD='<?php\ndeclare(strict_types=1);\n'
+	OPEN_HEAD='<?php\ndeclare(strict_types=1);\n\n'
 	  OPN_COM='/* '
 	  MID_COM=' * '
 	  CLS_COM=' */'
@@ -56,7 +56,7 @@ elif [[ $USER_SELECT -eq 3 ]]; then
 	LANG_PATH=LearnPASCAL
 	LANG_FLDR=lang-pascal
 	LANG_EXTN=pas
-	OPEN_HEAD='(* PYnative.com C Exercise Solutions'
+	OPEN_HEAD=''
 	  OPN_COM='(* '
 	  MID_COM=' * '
 	  CLS_COM=' *)'
@@ -95,8 +95,8 @@ for (( INDX=0; INDX<$FLDR_INDX; INDX++ )); do
 		LINE_NAME="Exercise $EX_NUMBER: $EX_PROMPT"
 		LINE_LINK="https://pynative.com/$CRNT_LINK"
 
-		echo -e "$OPEN_HEAD" > $FILE_DEST
-		echo -e "$OPN_COM\n$MID_COM$LINE_NAME\n$MID_COM$LINE_LINK\n$CLS_COM" \
+		echo -en "$OPEN_HEAD" > $FILE_DEST
+		echo -e  "$OPN_COM\n$MID_COM$LINE_NAME\n$MID_COM$LINE_LINK\n$CLS_COM" \
 		 >> $FILE_DEST
 		cat $FILE_ORIG | sed $SED_CUT >> $FILE_DEST
 
