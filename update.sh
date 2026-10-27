@@ -6,7 +6,7 @@ FLDR_ORIG=("21-variables-and-data-type" \
            "22-structures-and-unions" \
            "25-functions-exercises" \
            "26-file-handling-exercises" \
-           "30-loop-exercises" \
+           "28-loop-exercises" \
            "30-pointers-exercises" \
            "30-string-exercises" \
            "40-array-exercises" \
